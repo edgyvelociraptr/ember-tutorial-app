@@ -1,4 +1,4 @@
-import { LinkTo } from '@ember/routing';
+import { LinkTo } from '@ember/routing'; 
 
 <template>
   <div class="jumbo">
@@ -9,5 +9,6 @@ import { LinkTo } from '@ember/routing';
       By building a property rental site, we can simultaneously imagine traveling
       AND building Ember applications.
     </p>
+    <LinkTo @route="contact" class="button">Contact Us</LinkTo>
   </div>
 </template>
