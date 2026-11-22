@@ -8,7 +8,7 @@ module('Integration | Component | rental', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders information about a rental property', async function (assert) {
-    class State { 
+    class State {
       @tracked rental = {
         title: 'Grand Old Mansion',
         owner: 'Veruca Salt',
@@ -25,7 +25,7 @@ module('Integration | Component | rental', function (hooks) {
         description:
           'This grand old mansion sits on over 100 acres of rolling hills and dense redwood forests.',
       };
-    };
+    }
 
     const state = new State();
 

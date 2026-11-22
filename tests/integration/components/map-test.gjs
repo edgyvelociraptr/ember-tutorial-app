@@ -9,15 +9,17 @@ module('Integration | Component | map', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders a map image for the specified parameters', async function (assert) {
-    await render(<template>
-      <Map
-        @lat="37.7797"
-        @lng="-122.4184"
-        @zoom="10"
-        @width="150"
-        @height="120"
-      />
-    </template>);
+    await render(
+      <template>
+        <Map
+          @lat="37.7797"
+          @lng="-122.4184"
+          @zoom="10"
+          @width="150"
+          @height="120"
+        />
+      </template>,
+    );
 
     assert
       .dom('.map img')
@@ -52,25 +54,27 @@ module('Integration | Component | map', function (hooks) {
   });
 
   test('it updates the `src` attribute when the arguments change', async function (assert) {
-    class State { 
+    class State {
       @tracked lat = 37.7749;
       @tracked lng = -122.4194;
       @tracked zoom = 10;
       @tracked width = 150;
       @tracked height = 120;
-    };
+    }
 
     const state = new State();
 
-    await render(<template>
-      <Map
-        @lat={{state.lat}}
-        @lng={{state.lng}}
-        @zoom={{state.zoom}}
-        @width={{state.width}}
-        @height={{state.height}}
-      />
-    </template>);
+    await render(
+      <template>
+        <Map
+          @lat={{state.lat}}
+          @lng={{state.lng}}
+          @zoom={{state.zoom}}
+          @width={{state.width}}
+          @height={{state.height}}
+        />
+      </template>,
+    );
 
     let img = find('.map img');
 
@@ -132,33 +136,37 @@ module('Integration | Component | map', function (hooks) {
   });
 
   test('the default alt attribute can be overridden', async function (assert) {
-    await render(<template>
-      <Map
-        @lat="37.7797"
-        @lng="-122.4184"
-        @zoom="10"
-        @width="150"
-        @height="120"
-        alt="A map of San Francisco"
-      />
-    </template>);
+    await render(
+      <template>
+        <Map
+          @lat="37.7797"
+          @lng="-122.4184"
+          @zoom="10"
+          @width="150"
+          @height="120"
+          alt="A map of San Francisco"
+        />
+      </template>,
+    );
 
     assert.dom('.map img').hasAttribute('alt', 'A map of San Francisco');
   });
 
   test('the src, width and height attributes cannot be overridden', async function (assert) {
-    await render(<template>
-      <Map
-        @lat="37.7797"
-        @lng="-122.4184"
-        @zoom="10"
-        @width="150"
-        @height="120"
-        src="/assets/images/teaching-tomster.png"
-        width="200"
-        height="300"
-      />
-    </template>);
+    await render(
+      <template>
+        <Map
+          @lat="37.7797"
+          @lng="-122.4184"
+          @zoom="10"
+          @width="150"
+          @height="120"
+          src="/assets/images/teaching-tomster.png"
+          width="200"
+          height="300"
+        />
+      </template>,
+    );
 
     assert
       .dom('.map img')
