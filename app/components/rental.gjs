@@ -23,14 +23,11 @@ import Map from 'super-rentals/components/map';
       </div>
     </div>
     <Map
-      @lat="37.7749"// [!code --]
-      @lng="-122.4194"// [!code --]
       @lat={{@rental.location.lat}}
       @lng={{@rental.location.lng}}
       @zoom="9"
       @width="150"
       @height="150"
-      alt="A map of Grand Old Mansion"// [!code --]
       alt="A map of {{@rental.title}}"
     />
   </article>

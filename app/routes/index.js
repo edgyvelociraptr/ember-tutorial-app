@@ -4,6 +4,7 @@ const COMMUNITY_CATEGORIES = ['Condo', 'Townhouse', 'Apartment'];
 
 export default class IndexRoute extends Route {
   async model() {
+    // eslint-disable-next-line warp-drive/no-external-request-patterns
     let response = await fetch('/api/rentals.json');
     let { data } = await response.json();
 
